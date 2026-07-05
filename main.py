@@ -10,7 +10,10 @@ def main():
 
     # Game init
     pygame.init()
+
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    frame_limiter = pygame.time.Clock()
+    dt = 0.0
 
     # Game loop
     while (True):
@@ -26,6 +29,9 @@ def main():
         # Refresh screen with display.flip()
         pygame.display.flip()
 
+        # Limit FPS to 60
+        dt = frame_limiter.tick(60) / 1000
+        print(dt)
 
 if __name__ == "__main__":
     main()
